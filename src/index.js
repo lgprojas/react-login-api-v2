@@ -7,6 +7,7 @@ import Signup  from './routes/Signup';
 import Dashboard  from './routes/Dashboard';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';//nuevo
+import ProtectedRoute from './routes/ProtectedRoute';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -21,8 +22,14 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: "/",
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      }
+    ]
   }
 ])
 
