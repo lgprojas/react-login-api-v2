@@ -158,7 +158,7 @@ export function AuthProvider({ children }) {
         setIsAuthenticated(false)
         setAccessToken(null)
         setUser(null)
-        localStorage.removeItem('authTokens')
+        localStorage.removeItem('token')
     }
 
     //Se asocia AuthContext a AuthProvider
