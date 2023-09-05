@@ -41,6 +41,9 @@ export const PortalLayout = ({children}) => {
                                 <Link to="/dashboard" className='nav-link'>Dashboard</Link>
                             </li>
                             <li className='nav-item'>
+                                <Link to="/users" className='nav-link'>Users</Link>
+                            </li>
+                            <li className='nav-item'>
                                 <a href="#" onClick={handleSignOut} className='nav-link' >Singout</a>
                             </li>
                         </ul>
