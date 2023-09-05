@@ -40,8 +40,8 @@ const User = () => {
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Email</th>
             <th>Usuario</th>
+            <th>Email</th>
             <th className='text-center'><i class="bi bi-pencil-fill"></i></th>
             <th className='text-center'><i class="bi bi-trash-fill"></i></th>
           </tr>
