@@ -9,7 +9,7 @@ function Pagination({ registrosPerPage, totalRegistros, paginate }) {
     }
 
   return (
-    <nav>
+    <nav className='text-center'>
         <ul className='pagination mt-2'>
         {pageNumbers.map(number => (
             <li key={number} className='page-item'>

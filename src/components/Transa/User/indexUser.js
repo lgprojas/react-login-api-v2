@@ -1,9 +1,21 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+import EditarUser from './editarUser'
 
-const User = ({users, loading}) => {
+const indexUser = ({users, loading}) => {
 
   if(loading){
     return <h3>Loading...</h3>
+  }
+
+  const editarUsu = (id) => {
+    
+    alert(id);
+  }
+
+  const eliminarUsu = (id) => {
+
+    alert(id); 
   }
 
   return (
@@ -24,8 +36,12 @@ const User = ({users, loading}) => {
               <td>{user.nombre}</td>
               <td>{user.usuario}</td>
               <td>{user.email}</td>
-              <td className='text-center'><i class="bi bi-pencil"></i></td>
-              <td className='text-center'><i class="bi bi-trash"></i></td>
+              <td className='text-center'>
+
+              <Link to="/editarUser" className='nav-link'><i class="bi bi-trash"></i></Link>
+                          
+                </td>
+              <td className='text-center'><a href='#' onClick={() => eliminarUsu(user._id)}><i class="bi bi-trash"></i></a></td>
             </tr>
           ))} 
        </tbody>
@@ -34,4 +50,4 @@ const User = ({users, loading}) => {
   )
 }
 
-export default User
+export default indexUser

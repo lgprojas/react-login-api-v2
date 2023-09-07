@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PortalLayout } from '../layout/PortalLayout'
-import User from '../components/User';
+import User from '../components/Transa/User/indexUser.js';
+import NuevoUser from '../components/Transa/User/nuevoUser.js';
 import Pagination from '../components/Pagination';
 
 const Users = () => {
@@ -10,6 +11,12 @@ const Users = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [registrosPerPage] = useState(2);
+
+  //-- Modal 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  //--/Modal
 
   useEffect(() => {
     loadUsers();
@@ -58,10 +65,11 @@ const Users = () => {
     <PortalLayout>
         <div className='container'>
             <div className='h3'>Área User</div>
-            <div className='p-2'><button className='btn btn-outline-secondary'><i class="bi bi-plus-circle"></i> Nuevo</button></div>
+            <div className='p-2'><button className='btn btn-outline-secondary' onClick={handleShow}><i class="bi bi-plus-circle"></i> Nuevo</button></div>
             <User users={currentRegistros} loading={loading} />
             <Pagination registrosPerPage={registrosPerPage} totalRegistros={data.length} paginate={paginate}/>
-            <div className='p-2'><button className='btn btn-outline-secondary'><i class="bi bi-plus-circle"></i> Nuevo</button></div>
+            <div className='p-2'><button className='btn btn-outline-secondary' onClick={handleShow}><i class="bi bi-plus-circle"></i> Nuevo</button></div>
+            <NuevoUser show={show} handleClose={handleClose} />
         </div>
     </PortalLayout>
   )
