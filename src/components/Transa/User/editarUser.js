@@ -40,7 +40,8 @@ const EditarUser = () => {
           console.log("Se obtiene los datos del usuario")
           setErrorResponse("")
           const data = await response.json()
-          setUser(data.data)
+          setName(data.data.nombre)
+          setEmail(data.data.email)
   
         }else{
           console.log("Algo ocurrió")
@@ -101,11 +102,11 @@ const EditarUser = () => {
               <form className='form' onSubmit={handleSubmit}>
                 <div className='col-4 form-group p-2'>
                   <label>Nombre:</label>
-                  <input type='text' name="nombre" defaultValue={user.nombre} onChange={(e) => setName(e.target.value)} className='form-control'/>
+                  <input type='text' value={name} onChange={(e) => setName(e.target.value)} className='form-control'/>
                 </div>
                 <div className='col-4 form-group p-2'>
                   <label>Email:</label>
-                  <input type='text' name="email" defaultValue={user.email} onChange={(e) => setEmail(e.target.value)} className='form-control'/>
+                  <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} className='form-control'/>
                 </div>
                 <div className='col-4 form-group p-2'>
                   <button className='btn btn-primary'>Guardar</button>
