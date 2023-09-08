@@ -3,6 +3,7 @@ import { PortalLayout } from '../../../layout/PortalLayout'
 import { useParams } from 'react-router-dom'
 import { useAuth } from '../../../auth/AuthProvider';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { show_alerta } from '../../../utils/functions';
 
 const EditarUser = () => {
 
@@ -70,11 +71,13 @@ const EditarUser = () => {
   
         if(response.ok){
           console.log("Usuario actualizado correctamente")
+          show_alerta("Usuario actualizado correctamente", "success")
           setErrorResponse("")
           redirect("/users")
   
         }else{
           console.log("Algo ocurrió")
+          show_alerta("Algo ocurrió", "warning")
           const data = await response.json()
           setErrorResponse(data.data.error)
         }

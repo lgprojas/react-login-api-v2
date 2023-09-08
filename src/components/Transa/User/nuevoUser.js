@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { show_alerta } from '../../../utils/functions';
 
 //import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -16,6 +17,10 @@ const NuevoUser = ({show, handleClose, loadUsers}) => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+
+    if(name.trim() === ''){
+      show_alerta("Debe ingresar nombre", "warning")
+    }
 
     try {
       const response = await fetch('https://api-nodejs-u1qp.onrender.com/v1/usuRoutes/', {
@@ -33,6 +38,7 @@ const NuevoUser = ({show, handleClose, loadUsers}) => {
 
       if(response.ok){
         console.log("Usuario creado correctamente")
+        show_alerta("Usuario creado correctamente", "success")
         setErrorResponse("")
         handleClose();
         loadUsers();
@@ -40,6 +46,7 @@ const NuevoUser = ({show, handleClose, loadUsers}) => {
       }else{
         console.log("Algo ocurrió")
         const data = await response.json()
+        show_alerta(data.data.error, "warning")
         setErrorResponse(data.data.error)
       }
             

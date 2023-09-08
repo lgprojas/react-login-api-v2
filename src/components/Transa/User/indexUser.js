@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import { useAuth } from '../../../auth/AuthProvider';
+import { show_alerta } from '../../../utils/functions';
 
 const IndexUser = ({users, loading, loadUsers}) => {
 
@@ -28,11 +29,13 @@ const IndexUser = ({users, loading, loadUsers}) => {
   
         if(response.ok){
           console.log("Usuario eliminado correctamente")
+          show_alerta("Usuario eliminado correctamente", "success")
           setErrorResponse("")
           loadUsers()
   
         }else{
           console.log("Algo ocurrió")
+          show_alerta("No se pudo eliminar el usuario", "warning")
           const data = await response.json()
           setErrorResponse(data.data.error)
         }
