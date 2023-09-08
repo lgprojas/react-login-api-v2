@@ -7,7 +7,7 @@ import Signup  from './routes/Signup';
 import Dashboard  from './routes/Dashboard';
 import Users from './routes/Users';
 
-import EditarUser from './components/Transa/User/editarUser';
+import EditarUser from './components/Transa/User/EditarUser';
 
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';//nuevo
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/editarUser",
+    path: "/editarUser/:id",
     element: <EditarUser />,
   },
   {

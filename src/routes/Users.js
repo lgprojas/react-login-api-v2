@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PortalLayout } from '../layout/PortalLayout'
-import User from '../components/Transa/User/indexUser.js';
-import NuevoUser from '../components/Transa/User/nuevoUser.js';
+import User from '../components/Transa/User/IndexUser.js';
+import NuevoUser from '../components/Transa/User/NuevoUser.js';
 import Pagination from '../components/Pagination';
 
 const Users = () => {
@@ -66,10 +66,10 @@ const Users = () => {
         <div className='container'>
             <div className='h3'>Área User</div>
             <div className='p-2'><button className='btn btn-outline-secondary' onClick={handleShow}><i class="bi bi-plus-circle"></i> Nuevo</button></div>
-            <User users={currentRegistros} loading={loading} />
+            <User users={currentRegistros} loading={loading} loadUsers={loadUsers} />
             <Pagination registrosPerPage={registrosPerPage} totalRegistros={data.length} paginate={paginate}/>
             <div className='p-2'><button className='btn btn-outline-secondary' onClick={handleShow}><i class="bi bi-plus-circle"></i> Nuevo</button></div>
-            <NuevoUser show={show} handleClose={handleClose} />
+            <NuevoUser show={show} handleClose={handleClose} loadUsers={loadUsers}/>
         </div>
     </PortalLayout>
   )
