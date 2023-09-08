@@ -40,8 +40,8 @@ const EditarUser = () => {
           console.log("Se obtiene los datos del usuario")
           setErrorResponse("")
           const data = await response.json()
-          setName(data.data.nombre)
-          setEmail(data.data.email)
+          setName(data.data.nombre);
+          setEmail(data.data.email);
   
         }else{
           console.log("Algo ocurrió")
